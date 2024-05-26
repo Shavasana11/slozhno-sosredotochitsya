@@ -1,1 +1,1 @@
-1234r5
+git@github.com:Shavasana11/slozhno-sosredotochitsya.git
