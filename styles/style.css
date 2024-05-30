@@ -104,6 +104,8 @@
   }
 }
 
+
+
 @media (375px <= width < 768px) {
   .header__theme-menu-list {
     gap: 11px;
@@ -415,6 +417,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 21px;
+  }
+}
+
+@media (1024px < width) {
+  .section:first-of-type,
+  .section:nth-of-type(3) {
+    display: flex;
+    gap: 10px;
   }
 }
 
