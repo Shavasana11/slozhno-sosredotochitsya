@@ -1,9 +1,9 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  background: var(--background-image) no-repeat top center,
-    var(--background-color);
-  background-size: auto 768px;
+  background: var(--background-image) no-repeat, var(--background-color);
+  background-position: top center;
+  background-size: cover;
   color: var(--main-text-color);
   font-family: "IBM Plex mono", monospace;
   font-size: 18px;
@@ -14,19 +14,26 @@
 .header {
   padding: 0 20px;
   position: relative;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
-@media (width >= 375px) {
+@media (375px <= width <= 767px) {
   .header {
     padding: 0 10px;
   }
 }
 
-@media (width < 768px) {
+@media (768px < width <= 1023px) {
   .header {
-    padding: 0 10px;
+    min-height: 100px;
+  }
+}
+
+@media (width > 1024px) {
+  .header {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
   }
 }
 
@@ -38,19 +45,26 @@
   right: 48px;
 }
 
-@media (width >= 375px) {
+@media (width < 768px) and (width >= 375px) {
   .header_rec {
-    top: 10px;
-    right: 38px;
+    top: 11px;
+    right: 39px;
+  }
+}
+
+/* @media (width >= 375px) {
+  .header_rec {
+    top: 20px;
+    right: 50px;
   }
 }
 
 @media (width < 768px) {
   .header_rec {
-    top: 10px;
-    right: 38px;
+    top: 11px;
+    right: 39px;
   }
-}
+} */
 
 .header_rec::after {
   content: "";
@@ -69,13 +83,34 @@
   padding-top: 20px;
 }
 
+@media (width < 375px) {
+  .header__theme-menu-list {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 75px;
+  }
+}
+
 .header__theme-menu-list {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-@media (width >= 375px) {
+@media (width < 1024px) {
+  .header__theme-menu-list {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media (375px <= width < 768px) {
+  .header__theme-menu-list {
+    gap: 11px;
+  }
+}
+
+/* @media (width >= 375px) {
   .header__theme-menu-list {
     gap: 10px;
   }
@@ -92,7 +127,7 @@
     flex-direction: column;
     align-items: flex-end;
   }
-}
+} */
 
 .header__theme-menu-button {
   font-size: 18px;
@@ -136,6 +171,12 @@
   }
 }
 
+@media (width >= 1024px) {
+  .header__theme-menu {
+    padding-top: 20px;
+  }
+}
+
 .header__title-container {
   padding: 238px 0 136px;
   display: flex;
@@ -159,50 +200,64 @@
 
 .header__paragraph {
   align-self: flex-end;
-  width: 50%;
+  width: 100%;
 }
 
 @media (width >= 375px) {
   .header__title-container {
-    padding: 70px 0 74px;
+    padding: 70px 0 73px;
     gap: 57px;
-    overflow: hidden;
+  }
+}
+
+@media (width >= 75px) {
+  .header__title-container {
+    padding: 70px 0 73px;
+    gap: 57px;
   }
 }
 
 @media (width >= 768px) {
   .header__title-container {
-    padding: 150px 0 183px;
-    gap: 133px;
-    overflow: hidden;
+    padding: 180px 0 190px;
+    gap: 163px;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__title-container {
+    padding: 236px 0 140px;
+    gap: 78px;
   }
 }
 
 @media (width >= 375px) {
   .header__title {
     text-shadow: 4px 4px 0px var(--title-decor);
-    overflow: hidden;
+  }
+}
+
+@media (767px <= width <= 1023px) {
+  .header__title {
+    font-size: 120px;
+    margin-left: 0;
+    line-height: 82.5%;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+}
+
+@media (375px <= width <= 768px) {
+  .header__title {
+    font-size: 120px;
+    margin-left: 0;
+    line-height: 82.5%;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 }
 
 @media (width >= 768px) {
-  .header__title {
-    margin-left: -3%;
-    overflow: hidden;
-  }
-}
-
-@media (width < 768px) and (width >= 375px) {
-  .header__title {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    margin-left: 0;
-    line-height: 82.5%;
-  }
-}
-
-@media (width < 425px) {
-  .header__subtitle {
-    width: 100%;
+  .header__paragraph {
+    width: 50%;
   }
 }
 
@@ -214,10 +269,10 @@
   border-left: 1px solid var(--corners-color);
   border-bottom: 1px solid var(--corners-color);
   left: 20px;
-  bottom: 20px;
+  bottom: 22px;
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .decorated-zone::before {
     left: 10px;
     bottom: 17px;
@@ -235,7 +290,7 @@
   top: 20px;
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .decorated-zone::after {
     right: 10px;
     top: 10px;
@@ -244,14 +299,14 @@
 
 .main {
   padding: 0 20px;
-  margin: 60px 0;
-  flex: 1 1 auto;
+  margin: 53px 0;
+  /* flex: 1 1 auto; */
+  gap: 88px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .main {
     padding: 0 10px;
     margin: 35px 0;
@@ -262,6 +317,7 @@
 .section {
   font-size: 18px;
 }
+
 .section__title {
   margin-bottom: 20px;
   font-weight: 700;
@@ -273,7 +329,7 @@
   color: var(--article-title-color);
 }
 
-@media (width < 1024px) and (width >= 768px) {
+/* @media (width < 1024px) and (width >= 768px) {
   .section__title {
     width: 35%;
   }
@@ -284,17 +340,31 @@
     width: 100%;
     margin-bottom: 20px;
   }
+} */
+
+@media (768px <= width < 1024px) {
+  .section__title {
+    width: 35%;
+  }
+}
+
+@media (375px <= width < 768px) {
+  .section__title {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .section__content-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 19px;
 }
 
 .section__content-list-title {
   font-weight: 700;
   font-size: 18px;
+  width: 101%;
   color: var(--article-title-color);
 }
 
@@ -336,7 +406,16 @@
 .section:nth-of-type(3) {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 11px;
+}
+
+@media (768px <= width) {
+  .section:first-of-type,
+  .section:nth-of-type(3) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+  }
 }
 
 .section:first-of-type .section__title,
@@ -345,14 +424,14 @@
   width: 33%;
 }
 
-@media (width < 1024px) and (width >= 768px) {
+@media (768px <= width < 1024px) {
   .section:first-of-type .section__title,
   .section:nth-of-type(3) .section__title {
     width: 32%;
   }
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .section:first-of-type .section__title,
   .section:nth-of-type(3) .section__title {
     width: 100%;
@@ -365,20 +444,22 @@
   flex: 0 0 auto;
   width: 65%;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
-@media (width < 1024px) and (width >= 768px) {
+@media (768px <= width < 1024px) {
   .section:first-of-type .section__content-list,
   .section:nth-of-type(3) .section__content-list {
     width: 65%;
+    gap: 23px;
   }
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .section:first-of-type .section__content-list,
   .section:nth-of-type(3) .section__content-list {
     width: 100%;
+    gap: 26px;
   }
 }
 
@@ -386,7 +467,7 @@
   width: 30%;
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .section:nth-of-type(2) .section__title {
     width: 100%;
   }
@@ -398,7 +479,7 @@
   }
 }
 
-@media (width < 1024px) and (width >= 375px) {
+@media (375px <= width < 1024px) {
   .section:nth-of-type(2) .section__content-list {
     gap: 20px;
   }
@@ -409,7 +490,7 @@
   width: 32%;
 }
 
-@media (width < 1024px) and (width >= 375px) {
+@media (375px <= width < 1024px) {
   .section:nth-of-type(2) .section__content-item {
     flex: 1 0 auto;
     width: 100%;
@@ -472,10 +553,29 @@
 }
 
 .footer {
-  padding: 280px 20px;
+  padding: 287px 20px;
   position: relative;
-  text-align: center;
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (width > 1024px) {
+  .footer {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+  }
+}
+
+@media (width < 375px) {
+  .footer {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+  }
 }
 
 .footer__title {
@@ -485,25 +585,25 @@
   text-shadow: 2px 2px 0px var(--title-shadow);
 }
 
-@media (width < 1024px) and (width >= 375px) {
+@media (375px <= width < 1024px) {
   .footer__title {
     text-shadow: 2px 2px 0px var(--title-decor);
   }
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .footer__title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 }
 
-@media (width < 1024px) and (width >= 768px) {
+@media (768px <= width < 1024px) {
   .footer {
     padding: 434px 20px;
   }
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (375px <= width < 768px) {
   .footer {
     margin-top: 40px;
     padding: 260px 10px;
