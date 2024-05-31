@@ -14,6 +14,7 @@
 .header {
   padding: 0 20px;
   position: relative;
+  min-height: 100vh;
 }
 
 @media (375px <= width <= 767px) {
@@ -104,9 +105,15 @@
   }
 }
 
-@media (375px <= width < 768px) {
+@media (375px < width < 768px) {
   .header__theme-menu-list {
     gap: 11px;
+  }
+}
+
+@media (width <= 375px) {
+  .header__theme-menu-list {
+    gap: 13px;
   }
 }
 
@@ -192,6 +199,13 @@
   text-shadow: 4px 4px 0px var(--title-shadow);
 }
 
+@media (width < 376px) {
+  .header__title {
+    line-height: 95.7px;
+    margin-left: 1px;
+  }
+}
+
 .title-decor {
   color: var(--article-title-color);
   background-color: var(--title-decor);
@@ -203,17 +217,17 @@
   width: 100%;
 }
 
-@media (width >= 375px) {
+@media (width > 375px) {
   .header__title-container {
     padding: 70px 0 73px;
     gap: 57px;
   }
 }
 
-@media (width >= 75px) {
+@media (width <= 375px) {
   .header__title-container {
-    padding: 70px 0 73px;
-    gap: 57px;
+    padding: 67px 0 69px;
+    gap: 54px;
   }
 }
 
@@ -246,10 +260,9 @@
   }
 }
 
-@media (375px <= width <= 768px) {
+@media (375px < width <= 768px) {
   .header__title {
     font-size: 120px;
-    margin-left: 0;
     line-height: 82.5%;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
@@ -301,12 +314,13 @@
   padding: 0 20px;
   margin: 53px 0;
   /* flex: 1 1 auto; */
-  gap: 88px;
+  gap: 78px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-@media (375px <= width < 768px) {
+@media (376px <= width < 768px) {
   .main {
     padding: 0 10px;
     margin: 35px 0;
@@ -314,11 +328,11 @@
   }
 }
 
-@media (width < 375px) {
+@media (width <= 375px) {
   .main {
     padding: 0 10px;
     margin: 35px 0;
-    gap: 50px;
+    gap: 48px;
   }
 }
 
@@ -417,22 +431,37 @@
   gap: 11px;
 }
 
+@media (width <= 375px) {
+  .section:first-of-type,
+  .section:nth-of-type(3) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+  }
+}
+
+/* 768 */
+
 @media (768px <= width) {
   .section:first-of-type,
   .section:nth-of-type(3) {
     display: flex;
     flex-wrap: wrap;
-    gap: 21px;
+    gap: 22px;
   }
 }
 
-@media (1024px < width) {
+/* 1024 не трогать    */
+
+@media (1024px <= width) {
   .section:first-of-type,
   .section:nth-of-type(3) {
     display: flex;
-    gap: 10px;
+    gap: 18px;
   }
 }
+
+/* ююю */
 
 .section:first-of-type .section__title,
 .section:nth-of-type(3) .section__title {
@@ -447,7 +476,15 @@
   }
 }
 
-@media (375px <= width < 768px) {
+@media (375px < width < 768px) {
+  .section:first-of-type .section__title,
+  .section:nth-of-type(3) .section__title {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (width <= 375px) {
   .section:first-of-type .section__title,
   .section:nth-of-type(3) .section__title {
     width: 100%;
@@ -458,24 +495,33 @@
 .section:first-of-type .section__content-list,
 .section:nth-of-type(3) .section__content-list {
   flex: 0 0 auto;
-  width: 65%;
+  width: 66%;
   flex-direction: column;
-  gap: 22px;
+  gap: 19px;
 }
 
+/* 768 */
 @media (768px <= width < 1024px) {
   .section:first-of-type .section__content-list,
   .section:nth-of-type(3) .section__content-list {
-    width: 65%;
-    gap: 23px;
+    width: 64%;
+    gap: 19px;
   }
 }
 
-@media (375px <= width < 768px) {
+@media (376px <= width < 768px) {
   .section:first-of-type .section__content-list,
   .section:nth-of-type(3) .section__content-list {
     width: 100%;
     gap: 26px;
+  }
+}
+
+@media (width <= 375px) {
+  .section:first-of-type .section__content-list,
+  .section:nth-of-type(3) .section__content-list {
+    width: 100%;
+    gap: 19px;
   }
 }
 
@@ -503,9 +549,15 @@
   }
 }
 
-@media (375px <= width < 1024px) {
+@media (376px <= width < 1024px) {
   .section:nth-of-type(2) .section__content-list {
     gap: 20px;
+  }
+}
+
+@media (width <= 375px) {
+  .section:nth-of-type(2) .section__content-list {
+    gap: 18px;
   }
 }
 
@@ -542,9 +594,10 @@
   .section:nth-of-type(2) .section__title {
     width: 100%;
   }
-  .section:first-of-type .section__title, .section:nth-of-type(3) .section__title {
+  .section:first-of-type .section__title,
+  .section:nth-of-type(3) .section__title {
     width: 100%;
-}
+  }
 }
 
 @media (width >= 768px) {
@@ -598,6 +651,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 @media (width > 1024px) {
@@ -639,7 +693,7 @@
 
 @media (768px <= width < 1024px) {
   .footer {
-    padding: 434px 20px;
+    padding: 441px 20px;
   }
 }
 
