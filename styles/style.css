@@ -14,16 +14,16 @@
 .header {
   padding: 0 20px;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-@media (375px <= width <= 767px) {
+@media (width <= 767px) {
   .header {
     padding: 0 10px;
   }
 }
 
-@media (768px <= width <= 1024px) {
+@media (width <= 1024px) {
   .header {
     height: 100vh;
   }
@@ -46,10 +46,10 @@
   right: 48px;
 }
 
-@media (width < 768px) and (width >= 375px) {
+@media (width < 768px) {
   .header_rec {
-    top: 11px;
-    right: 39px;
+    top: 10px;
+    right: 38px;
   }
 }
 
@@ -106,7 +106,7 @@
   }
 }
 
-@media (375px < width < 768px) {
+@media (width < 768px) {
   .header__theme-menu-list {
     gap: 11px;
   }
@@ -252,7 +252,7 @@
   }
 }
 
-@media (767px <= width <= 1023px) {
+@media (width <= 1023px) {
   .header__title {
     font-size: 120px;
     margin-left: 0;
@@ -261,10 +261,20 @@
   }
 }
 
-@media (375px < width <= 768px) {
+@media (width <= 768px) {
   .header__title {
     font-size: 120px;
     line-height: 82.5%;
+    margin-left: -19px;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+}
+
+@media (width <= 375px) {
+  .header__title {
+    font-size: 120px;
+    line-height: 82.5%;
+    margin-left: 0px;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 }
@@ -286,24 +296,24 @@
   bottom: 20px;
 }
 
-@media (width < 768px) {
+@media (width <= 768px) {
   .decorated-zone::before {
-    left: 10px;
-    bottom: 17px;
+    left: 20px;
+    bottom: 20px;
   }
 }
 
-@media (768px <= width) {
-  .decorated-zone::before {
+@media (width <= 768px) {
+  footer.footer.decorated-zone::before {
     left: 20px;
     bottom: 22px;
   }
 }
 
-@media (768px <= width) {
-  footer.footer.decorated-zone::before {
-    left: 20px;
-    bottom: 20px;
+@media (width <= 375px) {
+  .decorated-zone::before {
+    left: 10px;
+    bottom: 10px;
   }
 }
 
@@ -311,13 +321,6 @@
   footer.footer.decorated-zone::before {
     left: 10px;
     bottom: 10px;
-  }
-}
-
-@media (width <= 375px) {
-  header.header.decorated-zone::before {
-    left: 10px;
-    bottom: 14px;
   }
 }
 
@@ -332,17 +335,31 @@
   top: 20px;
 }
 
-@media (375px <= width < 768px) {
+@media (width <= 768px) {
+  .decorated-zone::after {
+    right: 20px;
+    top: 20px;
+  }
+}
+
+@media (width <= 768px) {
+  footer.footer.decorated-zone::after {
+    right: 20px;
+    top: 17px;
+  }
+}
+
+@media (width <= 375px) {
   .decorated-zone::after {
     right: 10px;
     top: 10px;
   }
 }
 
-@media (768px <= width < 1024px) {
-  .footer .decorated-zone::after {
-    right: 20px;
-    top: 17px;
+@media (width <= 375px) {
+  footer.footer.decorated-zone::after {
+    right: 10px;
+    top: 11px;
   }
 }
 
@@ -358,7 +375,7 @@
 
 /* main */
 
-@media (376px <= width < 768px) {
+@media (width < 768px) {
   .main {
     padding: 0 10px;
     margin: 35px 0;
@@ -374,7 +391,7 @@
   }
 }
 
-@media (768px <= width < 1024px) {
+@media (width < 1024px) {
   .main {
     padding: 0 19px;
     margin: 60px 0;
@@ -422,7 +439,7 @@
   }
 }
 
-@media (375px <= width < 768px) {
+@media (width < 768px) {
   .section__title {
     width: 100%;
     margin-bottom: 20px;
@@ -544,14 +561,14 @@
   width: 33%;
 }
 
-@media (768px <= width <= 1024px) {
+@media (width <= 1024px) {
   .section:first-of-type .section__title,
   .section:nth-of-type(3) .section__title {
     width: 32%;
   }
 }
 
-@media (375px < width < 768px) {
+@media (width < 768px) {
   .section:first-of-type .section__title,
   .section:nth-of-type(3) .section__title {
     width: 100%;
@@ -583,7 +600,7 @@
 }
 
 /* 768 */
-@media (768px <= width < 1024px) {
+@media (width < 1024px) {
   .section:first-of-type .section__content-list,
   .section:nth-of-type(3) .section__content-list {
     width: 64%;
@@ -591,7 +608,7 @@
   }
 }
 
-@media (376px <= width < 768px) {
+@media (width < 768px) {
   .section:first-of-type .section__content-list,
   .section:nth-of-type(3) .section__content-list {
     width: 100%;
@@ -761,13 +778,13 @@
   text-shadow: 2px 2px 0px var(--title-shadow);
 }
 
-@media (375px <= width < 1024px) {
+@media (width < 1024px) {
   .footer__title {
     text-shadow: 2px 2px 0px var(--title-decor);
   }
 }
 
-@media (375px <= width < 768px) {
+@media (width < 768px) {
   .footer__title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
@@ -783,17 +800,15 @@
 
 @media (width >= 768px) {
   .footer {
-    padding: 441px 20px;
-    min-height: 100vh;
+    padding: 0px 20px;
+    height: 100vh;
   }
 }
 
-@media (375px <= width < 768px) {
+@media (375px <= width) {
   .footer {
     margin-top: 40px;
     padding: 260px 10px;
     height: 100vh;
   }
 }
-
-
