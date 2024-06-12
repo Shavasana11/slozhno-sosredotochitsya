@@ -242,16 +242,30 @@
   }
 }
 
-@media (width >= 768px) {
+@media (width = 768px) {
   .header__title-container {
     padding: 173px 0 0;
     gap: 161px;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 768px) {
+  .header__title-container {
+    padding: 0px 0 0;
+    gap: 161px;
+  }
+}
+
+@media (width = 1024px) {
   .header__title-container {
     padding: 236px 0 140px;
+    gap: 78px;
+  }
+}
+
+@media (width > 1024px) {
+  .header__title-container {
+    padding: 80px 0 140px;
     gap: 78px;
   }
 }
